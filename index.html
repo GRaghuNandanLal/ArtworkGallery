@@ -5,60 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artwork Gallery</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
+
+    <!-- Navigation Bar -->
+    <nav>
         <h1>Artwork Gallery</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="home" class="hero">
-        <h2>Welcome to the Artwork Gallery</h2>
-        <p>Explore beautiful artworks from talented artists.</p>
-        <button>Explore Now</button>
-    </section>
-    
-    <section id="search-filters">
-        <input type="text" placeholder="Search artwork...">
-        <select>
-            <option value="recent">Most Recent</option>
-            <option value="popular">Most Popular</option>
-            <option value="oldest">Oldest First</option>
+        <input type="text" id="search" placeholder="Search artworks...">
+        <select id="sort">
+            <option value="name">Sort by Name</option>
+            <option value="date">Sort by Date</option>
         </select>
-    </section>
-    
+    </nav>
+
+    <!-- Artwork Gallery -->
     <section id="gallery">
-        <div class="artwork">
-            <img src="art1.jpg" alt="Artwork 1">
-            <h3>Title of Artwork 1</h3>
-            <p>Artist Name</p>
-            <button>View Details</button>
+        <div class="artwork" data-name="Sunset" data-date="2024-03-01">
+            <img src="images/sunset.jpg" alt="Sunset">
+            <h2>Sunset</h2>
+            <p>A beautiful sunset over the mountains.</p>
+            <button class="view-btn">View</button>
         </div>
-        <div class="artwork">
-            <img src="art2.jpg" alt="Artwork 2">
-            <h3>Title of Artwork 2</h3>
-            <p>Artist Name</p>
-            <button>View Details</button>
+
+        <div class="artwork" data-name="Ocean" data-date="2023-12-10">
+            <img src="images/ocean.jpg" alt="Ocean">
+            <h2>Ocean Waves</h2>
+            <p>Calm ocean waves under the moonlight.</p>
+            <button class="view-btn">View</button>
+        </div>
+
+        <div class="artwork" data-name="Abstract" data-date="2024-02-15">
+            <video controls>
+                <source src="videos/abstract.mp4" type="video/mp4">
+            </video>
+            <h2>Abstract Art</h2>
+            <p>Creative expression through colors.</p>
+            <button class="view-btn">View</button>
         </div>
     </section>
-    
-    <section id="video">
-        <h2>Featured Video</h2>
-        <video controls>
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </section>
-    
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Artwork Gallery. All rights reserved.</p>
+        <p>© 2025 Artwork Gallery</p>
     </footer>
+
 </body>
 </html>
