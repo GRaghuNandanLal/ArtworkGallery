@@ -4,8 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artwork Gallery</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav input, nav select {
+            margin: 10px;
+            padding: 5px;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .artwork {
+            background: white;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            width: 250px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .artwork img, .artwork video {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Buttons */
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -49,6 +115,38 @@
     <footer>
         <p>© 2025 Artwork Gallery</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const search = document.getElementById("search");
+            const sort = document.getElementById("sort");
+            const artworks = document.querySelectorAll(".artwork");
+
+            // Search Functionality
+            search.addEventListener("input", () => {
+                const value = search.value.toLowerCase();
+                artworks.forEach(artwork => {
+                    const name = artwork.dataset.name.toLowerCase();
+                    artwork.style.display = name.includes(value) ? "block" : "none";
+                });
+            });
+
+            // Sorting Functionality
+            sort.addEventListener("change", () => {
+                let sorted = Array.from(artworks).sort((a, b) => {
+                    if (sort.value === "name") {
+                        return a.dataset.name.localeCompare(b.dataset.name);
+                    } else if (sort.value === "date") {
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    }
+                });
+
+                const gallery = document.getElementById("gallery");
+                gallery.innerHTML = "";
+                sorted.forEach(art => gallery.appendChild(art));
+            });
+        });
+    </script>
 
 </body>
 </html>
