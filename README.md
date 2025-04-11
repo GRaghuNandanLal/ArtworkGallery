@@ -1,2 +1,2 @@
-# ArtworkGallery
-ArtworkGallery
+# LocalCoffeeShop
+LocalCoffeeShop
